@@ -3,9 +3,10 @@ endpoint: 172.31.26.17
 mysql:
   - { name: '172.31.20.183', id: '1' }
   - { name: '172.31.19.114', id: '2' }
-appserver1: 172.31.26.17
-appserver2: 172.31.29.235
-worker1: 172.31.28.57
+appserver:
+  - { name: '172.31.26.17' }
+  - { name: '172.31.29.235'}
+worker: 172.31.28.57
 influxdb: 172.31.27.57
 path_to_license: /tmp/license.json
 path_to_secrets: /tmp/scalr-server-secrets.json
