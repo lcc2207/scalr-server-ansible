@@ -1,0 +1,6 @@
+---
+- name: copy in proxy config
+  copy:
+    src: "{{ role_path }}/files/scalr-server-local-proxy.rb"
+    dest: /etc/scalr-server/scalr-server-local.rb
+  notify: reconfigure scalr

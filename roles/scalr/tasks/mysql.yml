@@ -1,0 +1,6 @@
+---
+- name: template in mysql config
+  template:
+    src: "{{ role_path }}/templates/scalr-server-local.rb.tmp"
+    dest: /etc/scalr-server/scalr-server-local.rb
+  notify: reconfigure scalr

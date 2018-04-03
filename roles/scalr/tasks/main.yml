@@ -1,0 +1,28 @@
+---
+- name: Add repository for scalr.
+  raw: "curl -L https://9a2b3339b0b29641ea857f8e1b1051faa540c9544db4f47c:@packagecloud.io/install/repositories/scalr/scalr-server-ee/script.deb.sh | sudo bash"
+
+- name: update cache
+  apt:
+    update_cache: yes
+
+- name: create scalr directory
+  file:
+    path: /etc/scalr-server
+    state: directory
+
+- name: install scalr
+  package:
+    name: scalr-server
+
+- name: copy license file in
+  copy:
+    src: "{{ path_to_license }}"
+    dest: /etc/scalr-server/license.json
+
+- name: copy secrets file in
+  copy:
+    src: "{{ path_to_secrets }}"
+    dest: /etc/scalr-server/scalr-server-secrets.json
+
+- template: src="./templates/scalr-server.rb.tmp" dest="/etc/scalr-server/scalr-server.rb"

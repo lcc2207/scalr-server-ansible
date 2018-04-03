@@ -1,0 +1,8 @@
+---
+# endpoint: 
+# master_mysql:
+# slave_mysql:
+# appserver1:
+# appserver2:
+# worker1:
+# influxdb:

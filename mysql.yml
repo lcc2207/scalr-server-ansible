@@ -1,0 +1,11 @@
+---
+- hosts: mysql
+  become: True
+  roles:
+    - scalr
+  vars_files:
+   - vars.yml
+  tasks:
+    - include_role:
+        name: scalr
+        tasks_from: mysql

@@ -1,0 +1,10 @@
+---
+endpoint: 172.31.26.17
+master_mysql: 172.31.20.183
+slave_mysql: 172.31.19.114
+appserver1: 172.31.26.17
+appserver2: 172.31.29.235
+worker1: 172.31.28.57
+influxdb: 172.31.27.57
+path_to_license: /tmp/license.json
+path_to_secrets: /tmp/scalr-server-secrets.json
