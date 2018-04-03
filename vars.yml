@@ -1,7 +1,8 @@
 ---
 endpoint: 172.31.26.17
-master_mysql: 172.31.20.183
-slave_mysql: 172.31.19.114
+mysql:
+  - { name: '172.31.20.183', id: '1' }
+  - { name: '172.31.19.114', id: '2' }
 appserver1: 172.31.26.17
 appserver2: 172.31.29.235
 worker1: 172.31.28.57
