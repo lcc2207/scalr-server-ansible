@@ -8,8 +8,8 @@
 ##########################
 # You can use IPs for the below as well, but hostnames are preferable.
 ENDPOINT = '{{ endpoint }}'
-MASTER_MYSQL_SERVER_HOST = '{{ master_mysql }}'
-SLAVE_MYSQL_SERVER_HOST = '{{ slave_mysql }}'
+MASTER_MYSQL_SERVER_HOST = '{{ mysql[0].name }}'
+SLAVE_MYSQL_SERVER_HOST = '{{ mysql[1].name }}'
 APP_SERVER_1 = '{{ appserver1 }}'
 APP_SERVER_2 = '{{ appserver2 }}'
 WORKER_SERVER = '{{ worker1 }}'

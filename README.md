@@ -36,3 +36,5 @@ Author Information
 ------------------
 
 An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+
+ansible 13.57.231.15 --sudo -m raw -a "apt install -y python-minimal python-simplejson" -u ubuntu  --private-key ~/lcc/sshkeys/aws_lcckey.pem
