@@ -1,20 +1,19 @@
 # Enable the MySQL component
 mysql[:enable] = true
 
-# Set unique ID of this MySQL server
-{% if slave_mysql %}
-mysql[:server_id] = 1
-{% else %}
-mysql[:server_id] = 2
-{% endif %}
-
 # Enable binary log needed for replication
 mysql[:binlog] = true
 
 # Allow remote root access is required by the kickstart-replication script
 mysql[:allow_remote_root] = true
 
-{% if slave_mysql %}
-# Specify which IP the slave will connect from to grant the correct privileges to the replication user
- mysql[:repl_allow_connections_from] = "{{ slave_mysql }}"
+# Set unique ID of this MySQL server
+{% for instance in mysql %}
+{% if ansible_eth0.ipv4.address == instance.name %}
+mysql[:server_id] = {{ instance.id }}
 {% endif %}
+{% if instance.id == '1' %}
+# Specify which IP the slave will connect from to grant the correct privileges to the replication user
+ mysql[:repl_allow_connections_from] = "{{ mysql[1].name }}"
+{% endif %}
+{% endfor %}
