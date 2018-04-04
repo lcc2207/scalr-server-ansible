@@ -1,41 +1,57 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+This role will install and configure Scalr on a 6 node setup
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+- Ansible installed
+- hosts file setup with the following headers
+  [mysql]
+  [proxy]
+  [influxdb]
+  [worker]
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Role variables are set in the 'vars.yml' file
+
+``` yaml
+---
+endpoint: 172.31.19.47
+mysql:
+  - { name: '172.31.20.73', id: '1' }
+  - { name: '172.31.31.215', id: '2' }
+appserver:
+  - { name: '172.31.19.47' }
+  - { name: '172.31.26.92'}
+worker: 172.31.19.201
+influxdb: 172.31.17.108
+path_to_license: /tmp/license.json
+path_to_secrets: /tmp/scalr-server-secrets.json
+
+```
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+- a license.json file from your Scalr team
+- a scalr-server-secrets.json file - this can be either be created manually or by running "scalr-server-manage wizard" on a box with
+  scalr-server installed
 
-Example Playbook
+Example deployment command
 ----------------
+ansible-playbook -i ./hosts main.yml -u <os_user> --private-key xxx.pem
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Notes
+----------------
+On Ubuntu 16 and up you will need to add run
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+ansible-playbook -i ./hosts main.yml -u <os_user> --private-key xxx.pem -e 'ansible_python_interpreter=/usr/bin/python3'
 
 License
 -------
 
 BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
-
-ansible 13.57.231.15 --sudo -m raw -a "apt install -y python-minimal python-simplejson" -u ubuntu  --private-key ~/lcc/sshkeys/aws_lcckey.pem
-ansible-playbook -i ./hosts main.yml -u ubuntu --private-key ~/lcc/sshkeys/aws_lcckey.pem
