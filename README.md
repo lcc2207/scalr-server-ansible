@@ -14,6 +14,7 @@ Requirements
   [worker]
 
   Example Hosts:
+  ```
   [mysql]
   13.56.79.251
   18.144.33.250
@@ -27,7 +28,7 @@ Requirements
 
   [worker]
   18.144.55.45
-
+```
 Role Variables
 --------------
 
