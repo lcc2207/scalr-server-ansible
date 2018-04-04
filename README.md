@@ -13,6 +13,21 @@ Requirements
   [influxdb]
   [worker]
 
+  Example Hosts:
+  [mysql]
+  13.56.79.251
+  18.144.33.250
+
+  [proxy]
+  13.56.246.51
+  54.215.152.142
+
+  [influxdb]
+  54.241.186.90
+
+  [worker]
+  18.144.55.45
+
 Role Variables
 --------------
 
