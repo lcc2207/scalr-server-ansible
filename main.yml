@@ -11,6 +11,18 @@
         name: scalr
         tasks_from: mysql
 
+- name: setup influxdb
+  hosts: influxdb
+  become: True
+  roles:
+    - scalr
+  vars_files:
+   - vars.yml
+  tasks:
+    - include_role:
+        name: scalr
+        tasks_from: influxdb
+
 - name: setup worker
   hosts: worker
   become: True
@@ -34,15 +46,3 @@
     - include_role:
         name: scalr
         tasks_from: proxy
-
-- name: setup influxdb
-  hosts: influxdb
-  become: True
-  roles:
-    - scalr
-  vars_files:
-   - vars.yml
-  tasks:
-    - include_role:
-        name: scalr
-        tasks_from: influxdb
