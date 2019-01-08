@@ -1,12 +1,4 @@
 ---
-# - name: Add repository for scalr Debian.
-#   raw: "curl -L https://9a2b3339b0b29641ea857f8e1b1051faa540c9544db4f47c:@packagecloud.io/install/repositories/scalr/scalr-server-ee/script.deb.sh | sudo bash"
-#   when: ansible_os_family == 'Debian'
-#
-# - name: Add repository for RHEL
-#   raw: "curl -L https://9a2b3339b0b29641ea857f8e1b1051faa540c9544db4f47c:@packagecloud.io/install/repositories/scalr/scalr-server-ee/script.rpm.sh | sudo bash"
-#   when: ansible_os_family == 'RedHat'
-
 - name: Add repository
   include_role:
     name: packagecloud
@@ -14,7 +6,7 @@
       repository: scalr/scalr-server-ee
       os: "{{ ansible_distribution }}"
       version: "{{ ansible_distribution_release }}"
-      master_token: 9a2b3339b0b29641ea857f8e1b1051faa540c9544db4f47c
+      master_token: xxxx
 
 - name: update cache
   apt:
