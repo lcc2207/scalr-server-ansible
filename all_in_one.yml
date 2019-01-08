@@ -1,0 +1,14 @@
+---
+- name: setup Scalr
+  hosts: all
+  become: True
+  connection: local
+  roles:
+    - scalr
+  vars_files:
+   - vars.yml
+  tasks:
+    - include_role:
+        name: scalr
+        tasks_from: main
+      notify: reconfigure scalr
