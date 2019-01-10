@@ -22,15 +22,15 @@
   package:
     name: scalr-server
 
-- name: copy license file in
-  copy:
-    src: "{{ path_to_license }}"
-    dest: /etc/scalr-server/license.json
-
-- name: copy secrets file in
-  copy:
-    src: "{{ path_to_secrets }}"
-    dest: /etc/scalr-server/scalr-server-secrets.json
+# - name: copy license file in
+#   copy:
+#     src: "{{ path_to_license }}"
+#     dest: /etc/scalr-server/license.json
+#
+# - name: copy secrets file in
+#   copy:
+#     src: "{{ path_to_secrets }}"
+#     dest: /etc/scalr-server/scalr-server-secrets.json
 
 - name: template in config
   template:
