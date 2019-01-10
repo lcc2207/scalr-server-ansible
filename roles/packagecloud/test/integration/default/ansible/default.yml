@@ -1,0 +1,4 @@
+---
+- hosts: test-kitchen
+  roles:
+  - { role: packagecloud-ansible-role, repository: capotej/apt-cacher-ng, os: ubuntu, version: trusty }
