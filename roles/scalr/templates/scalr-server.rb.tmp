@@ -1,7 +1,7 @@
-####################
- # External Routing #
-####################
-  enable_all false
+{% if allinone }
+influxdb[:enable] = true
+{% else  %}
+enable_all false
 
 ##########################
 # Topology Configuration #
@@ -76,3 +76,4 @@ app[:rabbitmq_host] = WORKER_SERVER
 rabbitmq[:bind_host] = '0.0.0.0'
 rabbitmq[:mgmt_bind_host] = '0.0.0.0'
 proxy[:rabbitmq_upstreams] = [WORKER_SERVER]
+{% endif %}

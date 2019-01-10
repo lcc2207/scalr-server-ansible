@@ -26,13 +26,13 @@
 #   copy:
 #     src: "{{ path_to_license }}"
 #     dest: /etc/scalr-server/license.json
-#
-# - name: copy secrets file in
-#   copy:
-#     src: "{{ path_to_secrets }}"
-#     dest: /etc/scalr-server/scalr-server-secrets.json
 
-- name: template in config
+- name: secrets file in
+  template:
+    src: "{{ role_path }}/templates/scalr-server-secrets.json.tmp"
+    dest: /etc/scalr-server/scalr-server-secrets.json
+
+- name: all in one template in config
   template:
     src: "{{ role_path }}/templates/scalr-server.rb.tmp"
     dest: /etc/scalr-server/scalr-server.rb
