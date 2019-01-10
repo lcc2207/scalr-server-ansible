@@ -2,7 +2,6 @@
 - name: setup Scalr
   hosts: all
   become: True
-  connection: local
   roles:
     - scalr
   vars_files:
