@@ -53,6 +53,7 @@ Dependencies
 ------------
 
 - a license.json file from your Scalr team
+- Ansible variable "repokey: xxxx"
 
 Example deployment command
 ----------------

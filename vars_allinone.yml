@@ -1,5 +1,3 @@
 ---
 allinone: true
-path_to_license: /tmp/license.json
-path_to_secrets: /tmp/scalr-server-secrets.json
 repokey: xxx
