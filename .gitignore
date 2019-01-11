@@ -16,6 +16,7 @@ bin/*
 .kitchen/
 .kitchen.local.yml
 .kitchen.ec2.yml
+.kitchen-scalr.yml
 
 # Chef
 Berksfile.lock

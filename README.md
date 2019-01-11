@@ -45,8 +45,6 @@ appserver:
   - { name: '172.31.26.92'}
 worker: 172.31.19.201
 influxdb: 172.31.17.108
-path_to_license: /tmp/license.json
-path_to_secrets: /tmp/scalr-server-secrets.json
 repokey: xxxxx
 
 ```
@@ -55,8 +53,6 @@ Dependencies
 ------------
 
 - a license.json file from your Scalr team
-- a scalr-server-secrets.json file - this can be either be created manually or by running "scalr-server-manage wizard" on a box with
-  scalr-server installed
 
 Example deployment command
 ----------------

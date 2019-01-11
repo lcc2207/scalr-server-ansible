@@ -27,10 +27,8 @@
 #     src: "{{ path_to_license }}"
 #     dest: /etc/scalr-server/license.json
 
-- name: secrets file in
-  template:
-    src: "{{ role_path }}/templates/scalr-server-secrets.json.tmp"
-    dest: /etc/scalr-server/scalr-server-secrets.json
+- name: secrets file
+  command: /usr/bin/scalr-server-wizard
 
 - name: all in one template in config
   template:
