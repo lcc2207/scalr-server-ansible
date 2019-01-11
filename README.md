@@ -47,6 +47,7 @@ worker: 172.31.19.201
 influxdb: 172.31.17.108
 path_to_license: /tmp/license.json
 path_to_secrets: /tmp/scalr-server-secrets.json
+repokey: xxxxx
 
 ```
 
